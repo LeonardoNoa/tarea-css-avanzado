@@ -1,0 +1,196 @@
+ /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1e3a5f, #2c3e50);
+            color: white;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitulo {
+            text-align: center;
+            margin-bottom: 50px;
+            color: #bdc3c7;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin: 50px 0 30px;
+            text-align: center;
+            color: #f1c40f;
+        }
+
+        /* ======================================
+           SECCIÓN 1: TRANSFORMACIONES 2D
+           ====================================== */
+        .contenedor-2d {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 60px;
+        }
+
+        .caja {
+            width: 140px;
+            height: 140px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .caja span {
+            font-size: 0.8rem;
+            margin-top: 8px;
+            opacity: 0.9;
+        }
+
+        /* 🔄 Rotación */
+        .rotar {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+        }
+        .rotar:hover {
+            transform: rotate(45deg);
+            box-shadow: 0 8px 20px rgba(231, 76, 60, 0.4);
+        }
+
+        /* ➡️ Traslación */
+        .mover {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+        }
+        .mover:hover {
+            transform: translateX(50px);
+            box-shadow: 0 8px 20px rgba(52, 152, 219, 0.4);
+        }
+
+        /* 🔍 Escalado */
+        .escalar {
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+        }
+        .escalar:hover {
+            transform: scale(1.3);
+            box-shadow: 0 8px 20px rgba(46, 204, 113, 0.4);
+        }
+
+        /* 📐 Sesgado */
+        .sesgar {
+            background: linear-gradient(135deg, #9b59b6, #8e44ad);
+        }
+        .sesgar:hover {
+            transform: skew(10deg, 10deg);
+            box-shadow: 0 8px 20px rgba(155, 89, 182, 0.4);
+        }
+
+        /* ======================================
+           SECCIÓN 2: TRANSFORMACIONES 3D
+           ====================================== */
+        .contenedor-3d {
+            display: flex;
+            justify-content: center;
+            perspective: 1000px; /* Profundidad de visión */
+            margin: 40px 0 80px;
+        }
+
+        .cubo {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            transform-style: preserve-3d; /* Mantiene el espacio 3D */
+            animation: girar 10s infinite linear;
+        }
+
+        .cara {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: rgba(52, 152, 219, 0.85);
+            border: 2px solid white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        /* Posicionamiento de cada cara */
+        .frente    { transform: translateZ(100px); background: rgba(231, 76, 60, 0.85); }
+        .atras     { transform: rotateY(180deg) translateZ(100px); background: rgba(241, 196, 15, 0.85); }
+        .derecha   { transform: rotateY(90deg) translateZ(100px); background: rgba(46, 204, 113, 0.85); }
+        .izquierda { transform: rotateY(-90deg) translateZ(100px); background: rgba(52, 152, 219, 0.85); }
+        .arriba    { transform: rotateX(90deg) translateZ(100px); background: rgba(155, 89, 182, 0.85); }
+        .abajo     { transform: rotateX(-90deg) translateZ(100px); background: rgba(26, 188, 156, 0.85); }
+
+        /* Animación del cubo */
+        @keyframes girar {
+            from {
+                transform: rotateX(-20deg) rotateY(0deg);
+            }
+            to {
+                transform: rotateX(-20deg) rotateY(360deg);
+            }
+        }
+
+        /* ======================================
+           SECCIÓN 3: EFECTOS ADICIONALES
+           ====================================== */
+        .contenedor-extra {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .tarjeta {
+            width: 180px;
+            height: 180px;
+            background: linear-gradient(135deg, #1abc9c, #16a085);
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        /* Combinación de transformaciones */
+        .tarjeta:hover {
+            transform: rotateY(15deg) rotateX(10deg) scale(1.1);
+            box-shadow: -10px 10px 20px rgba(0,0,0,0.3);
+        }
+
+        .tarjeta p {
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+
+        .pie {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            color: #95a5a6;
+            font-size: 0.9rem;
+        }
